@@ -44,8 +44,17 @@ jobs:
           pull: "--no-rebase"
           push: true
 
-      - name: Build Next site
-        run: next build
+      #- name: Build Next site
+       # run: next build
+      - name: Build next site
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install -g yarn
+      - run: npm install -g next
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
       - name: Deploy to Netlify
