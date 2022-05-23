@@ -39,6 +39,8 @@ jobs:
         run: sudo apt install git -y
       - name: git
         run: git add .
+      - name: git config
+        run: git config --global user.email "me@9x9x9x.com" && git config --global user.name "9x9x9x"
       - name: git commit
         run: git commit -m "build scripts and public files"
       - name: git push
