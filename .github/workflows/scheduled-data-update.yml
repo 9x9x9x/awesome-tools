@@ -7,7 +7,7 @@ on:
   workflow_dispatch: null
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "30 10 * * *"
+    - cron: "30 10 2 * *"
   # push:
   #   branches:
   #     - master
@@ -31,8 +31,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install
         run: yarn install
-      - name: Run update job script
-        run: export ACCESS_TOKEN_GITHUB=${{ secrets.ACCESS_TOKEN_GITHUB }} && sh ./update-copy.sh
+      #- name: Run update job script
+       # run: export ACCESS_TOKEN_GITHUB=${{ secrets.ACCESS_TOKEN_GITHUB }} && sh ./update-copy.sh
       - name: Commit changes
         uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
         with:
@@ -45,7 +45,7 @@ jobs:
           push: true
 
       - name: Build Next site
-        run: sh ./build-site.sh
+        run: next build
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
       - name: Deploy to Netlify
