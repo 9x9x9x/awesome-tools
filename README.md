@@ -1,4 +1,4 @@
-<h1><a href='https://awesome.cube.dev'>awesome.cube.dev</a> — charts, data grids, maps, etc.</h1>
+<h1><a href='https://9x9x9x.com'>9x9x9x.com?</a> — charts, data grids, maps, etc.</h1>
 
 Choose the best tool for your needs by type, framework, language, or license. Get started in an instant.
 
