@@ -37,18 +37,18 @@ jobs:
         uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
         with:
           author_name: Data Update Worker
-          author_email: igor@cube.dev
+          author_email: 9x9x9x@9x9x9x.com
           cwd: "."
           default_author: github_actor
           message: "chore(copy): update data on schedule"
           pull: "--no-rebase"
           push: true
 
-      # - name: Build Next site
-      #   run: sh ./build-site.sh
-      # - name: Install Netlify CLI
-      #   run: npm install -g netlify-cli
-      # - name: Deploy to Netlify
-      #   run: netlify deploy --dir=out --prod
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Build Next site
+        run: sh ./build-site.sh
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Deploy to Netlify
+        run: netlify deploy --dir=out --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
