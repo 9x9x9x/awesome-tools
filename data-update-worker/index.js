@@ -27,7 +27,7 @@ asyncForEach(ids, async (id) => {
 });
 
 async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0; index < 5; index++) {
     await callback(array[index], index, array);
   }
 }
