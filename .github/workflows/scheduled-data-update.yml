@@ -29,8 +29,12 @@ jobs:
             node_modules
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Install
+      - name: Install next
+        run: npm install -g next 
+      - name: Yarn Install
         run: yarn install
+      - name: Build yarn
+        run: yarn build
       #- name: Run update job script
        # run: export ACCESS_TOKEN_GITHUB=${{ secrets.ACCESS_TOKEN_GITHUB }} && sh ./update-copy.sh
       - name: Commit changes
@@ -46,14 +50,7 @@ jobs:
 
       #- name: Build Next site
        # run: next build
-      - name: Build next site
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-        run: npm install -g yarn
-        run: npm install -g next
-        run: yarn install --frozen-lockfile
-        run: yarn build
+      
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
